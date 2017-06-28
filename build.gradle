@@ -14,10 +14,16 @@ buildscript {
     }
 }
 
+
+
 allprojects {
     repositories {
         jcenter()
     }
+}
+
+ext{
+    retrofitVersion = '2.3.0'
 }
 
 task clean(type: Delete) {
