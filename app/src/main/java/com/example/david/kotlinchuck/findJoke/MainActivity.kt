@@ -1,7 +1,8 @@
-package com.example.david.kotlinchuck
+package com.example.david.kotlinchuck.findJoke
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.david.kotlinchuck.R
 
 class MainActivity : AppCompatActivity() {
 
