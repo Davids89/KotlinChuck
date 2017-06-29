@@ -1,25 +1,37 @@
 package com.example.david.kotlinchuck.findJoke
 
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
+import com.example.david.kotlinchuck.findJoke.ui.FindJokeView
+import com.example.david.kotlinchuck.lib.EventBus
+import com.example.david.kotlinchuck.lib.GreenRobotEventBus
 
 /**
  * Created by david on 28/6/17.
  */
-class FindJokePresenterImpl: FindJokePresenter {
+class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
+
+    var view: FindJokeView? = view
+    var eventBus: EventBus = GreenRobotEventBus.INSTANCE
+    var repository: FindJokeRepository = FindJokeRepositoryImpl()
+
 
     override fun onCreate() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if(view != null){
+            this.eventBus.register(this);
+        }
     }
 
     override fun onDestroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.eventBus.unregister(this);
+        view = null
     }
 
-    override fun findJoke() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun findJoke(name: String, lastname: String) {
+        repository.findJoke(name, lastname)
     }
 
     override fun onEventMainThread(event: FindJokeEvent) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 }

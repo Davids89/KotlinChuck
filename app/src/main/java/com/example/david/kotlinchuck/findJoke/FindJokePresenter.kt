@@ -8,7 +8,7 @@ import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
 interface FindJokePresenter {
     fun onCreate()
     fun onDestroy()
-    fun findJoke()
+    fun findJoke(name: String, lastname: String)
 
     fun onEventMainThread(event: FindJokeEvent)
 }
