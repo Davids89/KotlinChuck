@@ -24,6 +24,7 @@ allprojects {
 
 ext{
     retrofitVersion = '2.3.0'
+    eventBusVersion = '3.0.0'
 }
 
 task clean(type: Delete) {
