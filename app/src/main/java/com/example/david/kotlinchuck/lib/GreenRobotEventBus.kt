@@ -3,7 +3,7 @@ package com.example.david.kotlinchuck.lib
 /**
  * Created by david on 29/6/17.
  */
-class GreenRobotEventBus() : EventBus {
+class GreenRobotEventBus : EventBus {
 
     var eventBus: org.greenrobot.eventbus.EventBus = org.greenrobot.eventbus.EventBus.getDefault()
 
