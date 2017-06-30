@@ -14,10 +14,18 @@ buildscript {
     }
 }
 
+
+
 allprojects {
     repositories {
         jcenter()
     }
+}
+
+ext{
+    retrofitVersion = '2.3.0'
+    retrofitInterceptorVersion = '3.4.1'
+    eventBusVersion = '3.0.0'
 }
 
 task clean(type: Delete) {
