@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(), FindJokeView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        presenter = FindJokePresenterImpl()
+        presenter = FindJokePresenterImpl(this)
         presenter.onCreate()
     }
 
