@@ -43,7 +43,10 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
 
     @Subscribe
     override fun onEventMainThread(event: FindJokeEvent) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        when(event.type){
+            FindJokeEvent.onSuccess -> view?.jokeSuccess(event.joke!!)
+        }
     }
 
 }
