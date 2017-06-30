@@ -4,6 +4,7 @@ import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
 import com.example.david.kotlinchuck.findJoke.ui.FindJokeView
 import com.example.david.kotlinchuck.lib.EventBus
 import com.example.david.kotlinchuck.lib.GreenRobotEventBus
+import org.greenrobot.eventbus.Subscribe
 
 /**
  * Created by david on 28/6/17.
@@ -30,6 +31,7 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
         repository.findJoke(name, lastname)
     }
 
+    @Subscribe
     override fun onEventMainThread(event: FindJokeEvent) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
