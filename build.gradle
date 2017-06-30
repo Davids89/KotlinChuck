@@ -24,6 +24,7 @@ allprojects {
 
 ext{
     retrofitVersion = '2.3.0'
+    retrofitInterceptorVersion = '3.2.0'
     eventBusVersion = '3.0.0'
 }
 
