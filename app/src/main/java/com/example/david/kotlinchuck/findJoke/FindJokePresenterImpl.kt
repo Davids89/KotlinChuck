@@ -18,22 +18,35 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
 
     override fun onCreate() {
         if(view != null){
-            this.eventBus.register(this);
+            this.eventBus.register(this)
         }
     }
 
     override fun onDestroy() {
-        this.eventBus.unregister(this);
+        this.eventBus.unregister(this)
         view = null
     }
 
     override fun findJoke(name: String, lastname: String) {
+
+        var finalName: String? = null
+        var finalLastName: String? = null
+
+        if(!name.isEmpty())
+            finalName = name
+
+        if(!lastname.isEmpty())
+            finalLastName = lastname
+
         repository.findJoke(name, lastname)
     }
 
     @Subscribe
     override fun onEventMainThread(event: FindJokeEvent) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
+        when(event.type){
+            FindJokeEvent.onSuccess -> view?.jokeSuccess(event.joke!!)
+        }
     }
 
 }
