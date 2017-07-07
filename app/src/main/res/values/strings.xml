@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">KotlinChuck</string>
     <string name="find_joke">Find joke</string>
+
+    <!-- main activity -->
+    <string name="bottom_nav_action_search">Buscar</string>
+    <string name="bottom_nav_action_favorite">Favoritos</string>
+    <string name="bottom_nav_action_settings">Ajustes</string>
 </resources>
