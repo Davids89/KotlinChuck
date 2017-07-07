@@ -23,6 +23,7 @@ allprojects {
 }
 
 ext{
+    supportVersion = '25.3.1'
     retrofitVersion = '2.3.0'
     retrofitInterceptorVersion = '3.4.1'
     eventBusVersion = '3.0.0'
