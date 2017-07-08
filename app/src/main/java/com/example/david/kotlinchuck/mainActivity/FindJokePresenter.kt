@@ -1,6 +1,6 @@
-package com.example.david.kotlinchuck.findJoke
+package com.example.david.kotlinchuck.mainActivity
 
-import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
+import com.example.david.kotlinchuck.mainActivity.event.FindJokeEvent
 
 /**
  * Created by david on 28/6/17.

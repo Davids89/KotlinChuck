@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.findJoke.event
+package com.example.david.kotlinchuck.mainActivity.event
 
 import com.example.david.kotlinchuck.entities.Joke
 

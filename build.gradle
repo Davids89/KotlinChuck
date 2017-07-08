@@ -27,6 +27,7 @@ ext{
     retrofitVersion = '2.3.0'
     retrofitInterceptorVersion = '3.4.1'
     eventBusVersion = '3.0.0'
+    ankoVersion = '0.10.1'
 }
 
 task clean(type: Delete) {
