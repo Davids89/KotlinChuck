@@ -42,7 +42,8 @@ dependencies {
     compile "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"
 
     //anko
-    compile "org.jetbrains.anko:anko:0.10.0"
+    compile "org.jetbrains.anko:anko:$rootProject.ext.ankoVersion"
+    compile "org.jetbrains.anko:anko-commons:$rootProject.ext.ankoVersion"
 }
 repositories {
     mavenCentral()
