@@ -1,9 +1,9 @@
-package com.example.david.kotlinchuck.findJoke
+package com.example.david.kotlinchuck.mainActivity
 
 import com.example.david.kotlinchuck.api.ChuckClient
 import com.example.david.kotlinchuck.api.RandomJokeResponse
 import com.example.david.kotlinchuck.entities.Joke
-import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
+import com.example.david.kotlinchuck.mainActivity.event.FindJokeEvent
 import com.example.david.kotlinchuck.lib.EventBus
 import com.example.david.kotlinchuck.lib.GreenRobotEventBus
 import retrofit2.Call

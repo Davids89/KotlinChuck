@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.findJoke
+package com.example.david.kotlinchuck.mainActivity
 
 /**
  * Created by david on 28/6/17.
