@@ -11,8 +11,6 @@ import com.example.david.kotlinchuck.mainActivity.ui.fragments.FavoriteFragment
 import com.example.david.kotlinchuck.mainActivity.ui.fragments.SearchFragment
 import com.example.david.kotlinchuck.mainActivity.ui.fragments.SettingsFragment
 import org.jetbrains.anko.find
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setInitialFragment()
-        setupFragments()
         setBottomNavigationBar()
     }
 
@@ -32,10 +29,6 @@ class MainActivity : AppCompatActivity() {
         val searchFragment: SearchFragment = SearchFragment()
         val transaction : FragmentTransaction = fragmentManager.beginTransaction()
         transaction.add(R.id.main_container, searchFragment).commit()
-    }
-
-    private fun setupFragments() {
-
     }
 
     private fun setBottomNavigationBar() {
