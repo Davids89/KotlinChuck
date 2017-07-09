@@ -7,8 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.entities.Joke
@@ -17,7 +15,6 @@ import com.example.david.kotlinchuck.mainActivity.FindJokePresenterImpl
 import com.example.david.kotlinchuck.mainActivity.ui.FindJokeView
 import kotlinx.android.synthetic.main.fragment_search.*
 import org.jetbrains.anko.support.v4.find
-import org.jetbrains.anko.support.v4.toast
 
 
 /**
