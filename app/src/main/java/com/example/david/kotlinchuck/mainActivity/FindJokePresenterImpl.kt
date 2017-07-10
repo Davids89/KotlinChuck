@@ -1,5 +1,6 @@
 package com.example.david.kotlinchuck.mainActivity
 
+import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.mainActivity.event.FindJokeEvent
 import com.example.david.kotlinchuck.mainActivity.ui.FindJokeView
 import com.example.david.kotlinchuck.lib.EventBus
@@ -39,6 +40,11 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
             finalLastName = lastname
 
         repository.findJoke(name, lastname)
+    }
+
+    override fun saveJoke(joke: Joke) {
+        if(view != null)
+            repository.saveJoke(joke)
     }
 
     @Subscribe
