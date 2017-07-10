@@ -1,47 +1,46 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.david.kotlinchuck.mainActivity.ui.fragments.SearchFragment">
+    tools:context="com.example.david.kotlinchuck.mainActivity.ui.fragments.SearchFragment"
+    android:paddingBottom="56dp">
 
-    <LinearLayout
+    <ImageButton
+        android:id="@+id/saveJoke"
+        android:layout_gravity="right"
+        android:src="@drawable/ic_action_favorite"
+        android:tint="@android:color/holo_red_dark"
+        android:background="@android:color/transparent"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <TextView
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
+        android:layout_height="100dp"
+        android:id="@+id/chuckJoke"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_centerInParent="true"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:id="@+id/chuckJoke"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_below="@id/chuckJoke"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/lastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <Button
+        android:layout_gravity="center"
+        android:text="@string/find_joke"
+        android:id="@+id/findJoke"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content" />
 
-        <Button
-            android:layout_gravity="center"
-            android:text="@string/find_joke"
-            android:id="@+id/findJoke"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-</FrameLayout>
+</LinearLayout>
