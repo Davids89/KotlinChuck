@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.entities.Joke
@@ -24,6 +25,8 @@ class SearchFragment : Fragment(), FindJokeView {
 
     val presenter: FindJokePresenter = FindJokePresenterImpl(this)
     lateinit var button: Button
+    lateinit var saveJoke: ImageButton
+    lateinit var currentJoke: Joke
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +47,15 @@ class SearchFragment : Fragment(), FindJokeView {
 
     private fun setViews() {
         button = find(R.id.findJoke)
+        saveJoke = find(R.id.saveJoke)
 
         button.setOnClickListener { presenter.findJoke(name.text.toString(), lastName.text.toString())  }
+        saveJoke.setOnClickListener { presenter.saveJoke(currentJoke)}
     }
 
     override fun jokeSuccess(joke: Joke) {
         chuckJoke.text = joke.joke
+        this.currentJoke = joke
     }
 
     override fun jokeError() {
