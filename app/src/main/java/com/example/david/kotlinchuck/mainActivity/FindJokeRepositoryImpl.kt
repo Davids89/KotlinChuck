@@ -1,5 +1,6 @@
 package com.example.david.kotlinchuck.mainActivity
 
+import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.api.ChuckClient
 import com.example.david.kotlinchuck.api.RandomJokeResponse
 import com.example.david.kotlinchuck.entities.Joke
@@ -21,6 +22,10 @@ class FindJokeRepositoryImpl: FindJokeRepository {
     override fun findJoke(name: String, lastName: String) {
 
         client.callToChuck().getRandomWithName(name, lastName).enqueue()
+    }
+
+    override fun saveJoke(joke: Joke) {
+        MyApp.database?.jokeDao()?.insertJoke(joke)
     }
 
     private fun success(joke: Joke){
