@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.mainActivity.ui.fragments
+package com.example.david.kotlinchuck.findJoke.ui
 
 
 import android.os.Bundle
@@ -11,9 +11,8 @@ import android.widget.ImageButton
 
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.entities.Joke
-import com.example.david.kotlinchuck.mainActivity.FindJokePresenter
-import com.example.david.kotlinchuck.mainActivity.FindJokePresenterImpl
-import com.example.david.kotlinchuck.mainActivity.ui.FindJokeView
+import com.example.david.kotlinchuck.findJoke.FindJokePresenter
+import com.example.david.kotlinchuck.findJoke.FindJokePresenterImpl
 import kotlinx.android.synthetic.main.fragment_search.*
 import org.jetbrains.anko.support.v4.find
 

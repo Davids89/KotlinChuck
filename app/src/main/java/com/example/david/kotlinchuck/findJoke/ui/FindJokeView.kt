@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.mainActivity.ui
+package com.example.david.kotlinchuck.findJoke.ui
 
 import com.example.david.kotlinchuck.entities.Joke
 
