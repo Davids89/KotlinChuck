@@ -37,7 +37,7 @@ class FindJokePresenterTest {
     }
 
     @Test
-    fun testFindJokeSucces() {
+    fun testFindJokeWithSucces() {
         val jokeName = "Joke"
         val lastName = "Lastname"
         val event: FindJokeEvent = FindJokeEvent()
