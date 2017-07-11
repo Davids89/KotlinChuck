@@ -11,7 +11,8 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito
+import org.mockito.Mockito.times
+import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
 /**
@@ -47,8 +48,8 @@ class FindJokePresenterTest {
         assertNotEquals(lastName.length, 0)
 
         mFindJokePresenter!!.findJoke(jokeName, lastName)
-        Mockito.verify(mFindJokeRepository)!!.findJoke(jokeName, lastName)
+        verify(mFindJokeRepository, times(1))!!.findJoke(jokeName, lastName)
         mFindJokePresenter!!.onEventMainThread(event)
-        Mockito.verify(mFindJokeView)!!.jokeSuccess(event.joke!!)
+        verify(mFindJokeView, times(1))!!.jokeSuccess(event.joke!!)
     }
 }
