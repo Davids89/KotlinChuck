@@ -45,7 +45,10 @@ dependencies {
     //anko
     compile "org.jetbrains.anko:anko:$rootProject.ext.ankoVersion"
     compile "org.jetbrains.anko:anko-commons:$rootProject.ext.ankoVersion"
-    testCompile 'junit:junit:4.12'
+
+    // Unit testing
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.mockito:mockito-core:$mockitoVersion"
 }
 repositories {
     mavenCentral()
