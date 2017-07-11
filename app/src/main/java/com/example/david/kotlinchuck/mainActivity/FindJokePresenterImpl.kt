@@ -11,7 +11,7 @@ import org.greenrobot.eventbus.Subscribe
 class FindJokePresenterImpl(var view: FindJokeView?, var repository: FindJokeRepository, var eventBus: GreenRobotEventBus?) : FindJokePresenter {
 
     override fun onCreate() {
-        if(view != null){
+        if (view != null) {
             this.eventBus?.register(this)
         }
     }
@@ -26,10 +26,10 @@ class FindJokePresenterImpl(var view: FindJokeView?, var repository: FindJokeRep
         var finalName: String? = null
         var finalLastName: String? = null
 
-        if(!name.isEmpty())
+        if (!name.isEmpty())
             finalName = name
 
-        if(!lastname.isEmpty())
+        if (!lastname.isEmpty())
             finalLastName = lastname
 
         repository.findJoke(name, lastname)
@@ -38,7 +38,7 @@ class FindJokePresenterImpl(var view: FindJokeView?, var repository: FindJokeRep
     @Subscribe
     override fun onEventMainThread(event: FindJokeEvent) {
 
-        when(event.type){
+        when (event.type) {
             FindJokeEvent.onSuccess -> view?.jokeSuccess(event.joke!!)
         }
     }
