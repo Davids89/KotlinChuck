@@ -1,20 +1,14 @@
 package com.example.david.kotlinchuck.mainActivity
 
+import com.example.david.kotlinchuck.lib.GreenRobotEventBus
 import com.example.david.kotlinchuck.mainActivity.event.FindJokeEvent
 import com.example.david.kotlinchuck.mainActivity.ui.FindJokeView
-import com.example.david.kotlinchuck.lib.EventBus
-import com.example.david.kotlinchuck.lib.GreenRobotEventBus
 import org.greenrobot.eventbus.Subscribe
 
 /**
  * Created by david on 28/6/17.
  */
-class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
-
-    var view: FindJokeView? = view
-    var eventBus: EventBus = GreenRobotEventBus.INSTANCE
-    var repository: FindJokeRepository = FindJokeRepositoryImpl()
-
+class FindJokePresenterImpl(var view: FindJokeView?, var repository: FindJokeRepository, var eventBus: GreenRobotEventBus) : FindJokePresenter {
 
     override fun onCreate() {
         if(view != null){
