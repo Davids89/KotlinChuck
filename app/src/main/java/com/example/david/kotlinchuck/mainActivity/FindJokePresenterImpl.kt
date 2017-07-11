@@ -8,16 +8,16 @@ import org.greenrobot.eventbus.Subscribe
 /**
  * Created by david on 28/6/17.
  */
-class FindJokePresenterImpl(var view: FindJokeView?, var repository: FindJokeRepository, var eventBus: GreenRobotEventBus) : FindJokePresenter {
+class FindJokePresenterImpl(var view: FindJokeView?, var repository: FindJokeRepository, var eventBus: GreenRobotEventBus?) : FindJokePresenter {
 
     override fun onCreate() {
         if(view != null){
-            this.eventBus.register(this)
+            this.eventBus?.register(this)
         }
     }
 
     override fun onDestroy() {
-        this.eventBus.unregister(this)
+        this.eventBus?.unregister(this)
         view = null
     }
 
