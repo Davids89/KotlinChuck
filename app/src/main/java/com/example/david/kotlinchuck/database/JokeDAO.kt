@@ -12,7 +12,7 @@ import com.example.david.kotlinchuck.entities.Joke
 @Dao
 interface JokeDAO {
 
-    @Query("SELECT * FROM joke")
+    @Query("SELECT * FROM Joke")
     fun getAllJokes(): List<Joke>
 
     @Insert
