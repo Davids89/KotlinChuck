@@ -6,4 +6,8 @@
     <string name="bottom_nav_action_search">Buscar</string>
     <string name="bottom_nav_action_favorite">Favoritos</string>
     <string name="bottom_nav_action_settings">Ajustes</string>
+
+    <!-- find joke repository -->
+    <string name="success_save_joke">Guardado con éxito</string>
+    <string name="error_save_joke">Ha ocurrido un error</string>
 </resources>
