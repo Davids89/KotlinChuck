@@ -14,6 +14,7 @@ import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.FindJokePresenter
 import com.example.david.kotlinchuck.findJoke.FindJokePresenterImpl
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.jetbrains.anko.design.longSnackbar
 import org.jetbrains.anko.support.v4.find
 
 
@@ -59,6 +60,14 @@ class SearchFragment : Fragment(), FindJokeView {
 
     override fun jokeError() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun saveJokeError(message: String) {
+        longSnackbar(search_container, message)
+    }
+
+    override fun saveJokeSuccess(message: String) {
+        longSnackbar(search_container, message)
     }
 
     override fun onDestroy() {

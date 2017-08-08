@@ -8,4 +8,6 @@ import com.example.david.kotlinchuck.entities.Joke
 interface FindJokeView {
     fun jokeSuccess(joke: Joke)
     fun jokeError()
+    fun saveJokeSuccess(message: String)
+    fun saveJokeError(message: String)
 }
