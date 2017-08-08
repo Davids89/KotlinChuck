@@ -3,6 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+kotlin{
+    experimental {
+        coroutines 'enable'
+    }
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -44,13 +50,19 @@ dependencies {
     compile "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"
 
     //anko
-    compile "org.jetbrains.anko:anko:$rootProject.ext.ankoVersion"
-    compile "org.jetbrains.anko:anko-commons:$rootProject.ext.ankoVersion"
+    compile "org.jetbrains.anko:anko-appcompat-v7-listeners:$ankoVersion"
+    compile "org.jetbrains.anko:anko-design-listeners:$ankoVersion"
+    compile "org.jetbrains.anko:anko-design:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sdk15-listeners:$ankoVersion"
+    compile "org.jetbrains.anko:anko-sdk15:$ankoVersion"
 
     //room
     compile 'android.arch.persistence.room:runtime:1.0.0-alpha3'
     compile 'android.arch.persistence.room:rxjava2:1.0.0-alpha3'
     kapt "android.arch.persistence.room:compiler:1.0.0-alpha3"
+
+    //coroutines
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.16"
 
     testCompile 'junit:junit:4.12'
 }
