@@ -2,6 +2,7 @@ package com.example.david.kotlinchuck.findJoke
 
 import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
+import com.example.david.kotlinchuck.findJoke.event.SaveJokeEvent
 import com.example.david.kotlinchuck.findJoke.ui.FindJokeView
 import com.example.david.kotlinchuck.lib.EventBus
 import com.example.david.kotlinchuck.lib.GreenRobotEventBus
@@ -49,9 +50,17 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
 
     @Subscribe
     override fun onEventMainThread(event: FindJokeEvent) {
-
         when(event.type){
             FindJokeEvent.onSuccess -> view?.jokeSuccess(event.joke!!)
+            FindJokeEvent.onError -> view?.jokeError()
+        }
+    }
+
+    @Subscribe
+    override fun onSaveJokeEvent(event: SaveJokeEvent) {
+        when(event.type){
+            SaveJokeEvent.onSuccess -> view?.saveJokeSuccess(event.message)
+            SaveJokeEvent.onError -> view?.saveJokeError(event.message)
         }
     }
 
