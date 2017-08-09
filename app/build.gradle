@@ -33,21 +33,22 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
-    compile "com.android.support:design:$rootProject.ext.supportVersion"
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:design:$supportVersion"
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta3'
-    compile "com.android.support:support-v4:$rootProject.ext.supportVersion"
+    compile "com.android.support:support-v4:$supportVersion"
+    compile "com.android.support:cardview-v7:$supportVersion"
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     //retrofit
-    compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
-    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.retrofitInterceptorVersion"
-    compile "com.squareup.okhttp3:okhttp:$rootProject.ext.retrofitInterceptorVersion"
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$retrofitInterceptorVersion"
+    compile "com.squareup.okhttp3:okhttp:$retrofitInterceptorVersion"
 
     //eventbus
-    compile "org.greenrobot:eventbus:$rootProject.ext.eventBusVersion"
+    compile "org.greenrobot:eventbus:$eventBusVersion"
 
     //anko
     compile "org.jetbrains.anko:anko-appcompat-v7-listeners:$ankoVersion"
@@ -63,6 +64,10 @@ dependencies {
 
     //coroutines
     compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.16"
+
+    //glide
+    compile "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
     testCompile 'junit:junit:4.12'
 }
