@@ -4,7 +4,7 @@ import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
 import com.example.david.kotlinchuck.findJoke.event.SaveJokeEvent
 import com.example.david.kotlinchuck.findJoke.ui.FindJokeView
-import com.example.david.kotlinchuck.lib.EventBus
+import com.example.david.kotlinchuck.lib.base.EventBus
 import com.example.david.kotlinchuck.lib.GreenRobotEventBus
 import org.greenrobot.eventbus.Subscribe
 
@@ -31,8 +31,8 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
 
     override fun findJoke(name: String, lastname: String) {
 
-        var finalName: String? = null
-        var finalLastName: String? = null
+        var finalName: String = String()
+        var finalLastName: String = String()
 
         if(!name.isEmpty())
             finalName = name
@@ -40,7 +40,7 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
         if(!lastname.isEmpty())
             finalLastName = lastname
 
-        repository.findJoke(name, lastname)
+        repository.findJoke(finalName, finalLastName)
     }
 
     override fun saveJoke(joke: Joke) {
@@ -51,7 +51,10 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
     @Subscribe
     override fun onEventMainThread(event: FindJokeEvent) {
         when(event.type){
-            FindJokeEvent.onSuccess -> view?.jokeSuccess(event.joke!!)
+            FindJokeEvent.onSuccess -> {
+                view?.jokeSuccess(event.joke!!)
+                view?.showSaveJoke()
+            }
             FindJokeEvent.onError -> view?.jokeError()
         }
     }
@@ -59,7 +62,10 @@ class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
     @Subscribe
     override fun onSaveJokeEvent(event: SaveJokeEvent) {
         when(event.type){
-            SaveJokeEvent.onSuccess -> view?.saveJokeSuccess(event.message)
+            SaveJokeEvent.onSuccess ->{
+                view?.saveJokeSuccess(event.message)
+                findJoke("","")
+            }
             SaveJokeEvent.onError -> view?.saveJokeError(event.message)
         }
     }
