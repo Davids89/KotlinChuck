@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.mainActivity.ui.fragments
+package com.example.david.kotlinchuck.findJoke.ui
 
 
 import android.os.Bundle
@@ -7,17 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.ImageButton
 
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.entities.Joke
-import com.example.david.kotlinchuck.mainActivity.FindJokePresenter
-import com.example.david.kotlinchuck.mainActivity.FindJokePresenterImpl
-import com.example.david.kotlinchuck.mainActivity.ui.FindJokeView
+import com.example.david.kotlinchuck.findJoke.FindJokePresenter
+import com.example.david.kotlinchuck.findJoke.FindJokePresenterImpl
 import kotlinx.android.synthetic.main.fragment_search.*
+import org.jetbrains.anko.design.longSnackbar
 import org.jetbrains.anko.support.v4.find
-import org.jetbrains.anko.support.v4.toast
 
 
 /**
@@ -27,10 +25,17 @@ class SearchFragment : Fragment(), FindJokeView {
 
     val presenter: FindJokePresenter = FindJokePresenterImpl(this)
     lateinit var button: Button
+    lateinit var saveJoke: ImageButton
+    lateinit var currentJoke: Joke
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.onCreate()
+        loadImage()
+    }
+
+    private fun loadImage() {
+
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -47,16 +52,31 @@ class SearchFragment : Fragment(), FindJokeView {
 
     private fun setViews() {
         button = find(R.id.findJoke)
+        saveJoke = find(R.id.saveJoke)
 
         button.setOnClickListener { presenter.findJoke(name.text.toString(), lastName.text.toString())  }
+        saveJoke.setOnClickListener { presenter.saveJoke(currentJoke)}
     }
 
     override fun jokeSuccess(joke: Joke) {
         chuckJoke.text = joke.joke
+        this.currentJoke = joke
     }
 
     override fun jokeError() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun saveJokeError(message: String) {
+        longSnackbar(search_container, message)
+    }
+
+    override fun saveJokeSuccess(message: String) {
+        longSnackbar(search_container, message)
+    }
+
+    override fun showSaveJoke() {
+        saveJoke.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {

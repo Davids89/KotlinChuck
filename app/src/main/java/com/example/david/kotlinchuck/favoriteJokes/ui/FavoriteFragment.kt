@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.mainActivity.ui.fragments
+package com.example.david.kotlinchuck.favoriteJokes.ui
 
 
 import android.os.Bundle

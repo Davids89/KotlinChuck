@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.mainActivity.ui
+package com.example.david.kotlinchuck.mainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -7,9 +7,9 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import com.example.david.kotlinchuck.R
-import com.example.david.kotlinchuck.mainActivity.ui.fragments.FavoriteFragment
-import com.example.david.kotlinchuck.mainActivity.ui.fragments.SearchFragment
-import com.example.david.kotlinchuck.mainActivity.ui.fragments.SettingsFragment
+import com.example.david.kotlinchuck.favoriteJokes.ui.FavoriteFragment
+import com.example.david.kotlinchuck.findJoke.ui.SearchFragment
+import com.example.david.kotlinchuck.settings.SettingsFragment
 import org.jetbrains.anko.find
 
 class MainActivity : AppCompatActivity() {

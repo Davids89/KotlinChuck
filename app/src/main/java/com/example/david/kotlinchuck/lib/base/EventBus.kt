@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.lib
+package com.example.david.kotlinchuck.lib.base
 
 /**
  * Created by david on 29/6/17.
