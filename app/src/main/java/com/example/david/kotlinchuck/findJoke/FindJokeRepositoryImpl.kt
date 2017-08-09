@@ -1,14 +1,12 @@
 package com.example.david.kotlinchuck.findJoke
 
-import android.support.v4.content.ContextCompat
 import com.example.david.kotlinchuck.MyApp
-import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.api.ChuckClient
 import com.example.david.kotlinchuck.api.RandomJokeResponse
 import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
 import com.example.david.kotlinchuck.findJoke.event.SaveJokeEvent
-import com.example.david.kotlinchuck.lib.EventBus
+import com.example.david.kotlinchuck.lib.base.EventBus
 import com.example.david.kotlinchuck.lib.GreenRobotEventBus
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.launch
@@ -36,6 +34,7 @@ class FindJokeRepositoryImpl: FindJokeRepository {
                 MyApp.database?.jokeDao()?.insertJoke(joke)
                 successSaveJoke()
             } catch (e: Exception){
+                print(e)
                 errorSaveJoke()
             }
         }
