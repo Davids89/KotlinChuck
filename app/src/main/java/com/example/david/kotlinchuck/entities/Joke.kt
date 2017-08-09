@@ -13,4 +13,8 @@ data class Joke(
         @PrimaryKey(autoGenerate = true)
         val uid: Long,
         @SerializedName("id") val id: String,
-        @SerializedName("joke") val joke: String)
+        @SerializedName("joke") val joke: String){
+
+        var saved: Boolean = false
+
+}
