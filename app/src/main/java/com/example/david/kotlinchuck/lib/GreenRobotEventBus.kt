@@ -1,5 +1,7 @@
 package com.example.david.kotlinchuck.lib
 
+import com.example.david.kotlinchuck.lib.base.EventBus
+
 /**
  * Created by david on 29/6/17.
  */
