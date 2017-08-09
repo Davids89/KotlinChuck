@@ -31,6 +31,11 @@ class SearchFragment : Fragment(), FindJokeView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.onCreate()
+        loadImage()
+    }
+
+    private fun loadImage() {
+
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -68,6 +73,10 @@ class SearchFragment : Fragment(), FindJokeView {
 
     override fun saveJokeSuccess(message: String) {
         longSnackbar(search_container, message)
+    }
+
+    override fun showSaveJoke() {
+        saveJoke.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {
