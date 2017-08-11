@@ -2,24 +2,33 @@ package com.example.david.kotlinchuck.mainActivity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
+import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.favoriteJokes.ui.FavoriteFragment
 import com.example.david.kotlinchuck.findJoke.ui.SearchFragment
+import com.example.david.kotlinchuck.mainActivity.di.DaggerMainActivityComponent
+import com.example.david.kotlinchuck.mainActivity.di.MainActivityModule
 import com.example.david.kotlinchuck.settings.SettingsFragment
-import org.jetbrains.anko.find
+import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var bottomNavigation: BottomNavigationView
-    val fragmentManager: FragmentManager = supportFragmentManager
+    @Inject
+    lateinit var fragmentManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val activityComponent = DaggerMainActivityComponent.builder()
+                .mainActivityModule(MainActivityModule(this))
+                .build()
+
+        activityComponent.inject(this)
 
         setInitialFragment()
         setBottomNavigationBar()
@@ -32,10 +41,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setBottomNavigationBar() {
-        bottomNavigation = find(R.id.bottom_navigation)
         var fragment: Fragment = Fragment()
 
-        bottomNavigation.setOnNavigationItemSelectedListener{
+        bottom_navigation.setOnNavigationItemSelectedListener{
 
             when(it.itemId){
                 R.id.action_search -> fragment = SearchFragment()
