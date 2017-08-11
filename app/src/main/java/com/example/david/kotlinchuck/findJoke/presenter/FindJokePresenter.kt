@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.findJoke
+package com.example.david.kotlinchuck.findJoke.presenter
 
 import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
