@@ -24,11 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val activityComponent = DaggerMainActivityComponent.builder()
-                .mainActivityModule(MainActivityModule(this))
-                .build()
-
-        activityComponent.inject(this)
+        MyApp.mainActivityComponent(this).inject(this)
 
         setInitialFragment()
         setBottomNavigationBar()
