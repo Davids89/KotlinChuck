@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.findJoke
+package com.example.david.kotlinchuck.findJoke.repository
 
 import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.api.ChuckClient

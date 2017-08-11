@@ -1,6 +1,8 @@
-package com.example.david.kotlinchuck.findJoke
+package com.example.david.kotlinchuck.findJoke.presenter
 
 import com.example.david.kotlinchuck.entities.Joke
+import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepository
+import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepositoryImpl
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
 import com.example.david.kotlinchuck.findJoke.event.SaveJokeEvent
 import com.example.david.kotlinchuck.findJoke.ui.FindJokeView

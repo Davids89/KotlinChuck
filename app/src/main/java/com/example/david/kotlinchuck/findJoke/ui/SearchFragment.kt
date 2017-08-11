@@ -11,8 +11,8 @@ import android.widget.ImageButton
 
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.entities.Joke
-import com.example.david.kotlinchuck.findJoke.FindJokePresenter
-import com.example.david.kotlinchuck.findJoke.FindJokePresenterImpl
+import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenter
+import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenterImpl
 import kotlinx.android.synthetic.main.fragment_search.*
 import org.jetbrains.anko.design.longSnackbar
 import org.jetbrains.anko.support.v4.find
