@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.di
+package com.example.david.kotlinchuck.di.app
 
 import android.content.Context
 import android.support.annotation.NonNull

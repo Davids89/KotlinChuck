@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.di
+package com.example.david.kotlinchuck.di.presenter
 
 import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepository
 import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepositoryImpl

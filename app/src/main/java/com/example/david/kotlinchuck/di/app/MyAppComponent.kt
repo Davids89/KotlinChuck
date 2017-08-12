@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.di
+package com.example.david.kotlinchuck.di.app
 
 import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenter
