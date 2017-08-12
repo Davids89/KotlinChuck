@@ -1,5 +1,6 @@
 package com.example.david.kotlinchuck.di.repository
 
+import com.example.david.kotlinchuck.favoriteJokes.repository.FavoriteJokesRepository
 import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepositoryImpl
 import dagger.Component
 import javax.inject.Singleton
@@ -11,4 +12,5 @@ import javax.inject.Singleton
 @Singleton
 interface RepositoryComponent {
     fun inject(repository: FindJokeRepositoryImpl)
+    fun inject(repository: FavoriteJokesRepository)
 }

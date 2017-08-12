@@ -1,5 +1,6 @@
 package com.example.david.kotlinchuck.di.presenter
 
+import com.example.david.kotlinchuck.favoriteJokes.presenter.FavoriteJokesPresenterImpl
 import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenterImpl
 import dagger.Component
 import javax.inject.Singleton
@@ -11,4 +12,5 @@ import javax.inject.Singleton
 @Singleton
 interface PresentersComponent {
     fun inject(presenter: FindJokePresenterImpl)
+    fun inject(presenter: FavoriteJokesPresenterImpl)
 }

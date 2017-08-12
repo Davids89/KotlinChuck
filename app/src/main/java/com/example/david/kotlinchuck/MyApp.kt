@@ -14,6 +14,10 @@ import com.example.david.kotlinchuck.di.presenter.PresentersModule
 import com.example.david.kotlinchuck.di.repository.DaggerRepositoryComponent
 import com.example.david.kotlinchuck.di.repository.RepositoryComponent
 import com.example.david.kotlinchuck.di.repository.RepositoryModule
+import com.example.david.kotlinchuck.favoriteJokes.di.DaggerFavoriteComponent
+import com.example.david.kotlinchuck.favoriteJokes.di.FavoriteComponent
+import com.example.david.kotlinchuck.favoriteJokes.di.FavoriteModule
+import com.example.david.kotlinchuck.favoriteJokes.ui.FavoriteView
 import com.example.david.kotlinchuck.findJoke.di.DaggerFindJokeComponent
 import com.example.david.kotlinchuck.findJoke.di.FindJokeComponent
 import com.example.david.kotlinchuck.findJoke.di.FindJokeModule
@@ -41,6 +45,12 @@ class MyApp: Application() {
         fun searchFragmentComponent(view: FindJokeView): FindJokeComponent{
             return DaggerFindJokeComponent.builder()
                     .findJokeModule(FindJokeModule(view))
+                    .build()
+        }
+
+        fun favoriteFragmentComponent(view : FavoriteView): FavoriteComponent{
+            return DaggerFavoriteComponent.builder()
+                    .favoriteModule(FavoriteModule(view))
                     .build()
         }
 

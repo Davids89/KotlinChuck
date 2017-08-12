@@ -1,5 +1,7 @@
 package com.example.david.kotlinchuck.di.presenter
 
+import com.example.david.kotlinchuck.favoriteJokes.repository.FavoriteJokesRepository
+import com.example.david.kotlinchuck.favoriteJokes.repository.FavoriteJokesRepositoryImpl
 import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepository
 import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepositoryImpl
 import com.example.david.kotlinchuck.lib.GreenRobotEventBus
@@ -22,5 +24,10 @@ class PresentersModule {
     @Provides
     fun providesFindJokeRepository(): FindJokeRepository {
         return FindJokeRepositoryImpl()
+    }
+
+    @Provides
+    fun providesFavoriteRepository(): FavoriteJokesRepository{
+        return FavoriteJokesRepositoryImpl()
     }
 }
