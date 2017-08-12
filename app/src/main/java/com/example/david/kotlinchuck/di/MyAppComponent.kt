@@ -1,6 +1,7 @@
 package com.example.david.kotlinchuck.di
 
 import com.example.david.kotlinchuck.MyApp
+import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenter
 import com.example.david.kotlinchuck.mainActivity.MainActivity
 import dagger.Component
 import javax.inject.Singleton
@@ -12,4 +13,5 @@ import javax.inject.Singleton
 @Singleton
 interface AppComponent {
     fun inject(app: MyApp)
+    fun inject(findJokePresenter: FindJokePresenter)
 }

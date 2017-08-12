@@ -5,7 +5,6 @@ import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenterImpl
 import com.example.david.kotlinchuck.findJoke.ui.FindJokeView
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 /**
  * Created by david on 11/8/17.
