@@ -1,7 +1,14 @@
 package com.example.david.kotlinchuck.di
 
+import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenterImpl
+import dagger.Component
+import javax.inject.Singleton
+
 /**
  * Created by david on 12/8/17.
  */
-class PresentersComponent {
+@Component(modules = arrayOf(PresentersModule::class))
+@Singleton
+interface PresentersComponent {
+    fun inject(presenter: FindJokePresenterImpl)
 }
