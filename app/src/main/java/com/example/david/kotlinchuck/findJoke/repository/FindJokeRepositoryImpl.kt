@@ -13,14 +13,22 @@ import kotlinx.coroutines.experimental.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
 /**
  * Created by david on 28/6/17.
  */
-class FindJokeRepositoryImpl: FindJokeRepository {
+class FindJokeRepositoryImpl : FindJokeRepository {
 
-    private val client: ChuckClient = ChuckClient()
-    val eventBus: EventBus = GreenRobotEventBus.INSTANCE
+    @Inject
+    lateinit var client: ChuckClient
+
+    @Inject
+    lateinit var eventBus: EventBus
+
+    constructor() {
+        MyApp.repositoryComponent().inject(this)
+    }
 
     override fun findJoke(name: String, lastName: String) {
 

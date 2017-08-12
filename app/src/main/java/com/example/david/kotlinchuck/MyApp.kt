@@ -5,10 +5,15 @@ import android.arch.persistence.room.Room
 import android.content.Context
 import com.example.david.kotlinchuck.database.AppDatabase
 import com.example.david.kotlinchuck.di.*
+import com.example.david.kotlinchuck.di.app.DaggerMyAppComponent
 import com.example.david.kotlinchuck.di.app.MyAppComponent
 import com.example.david.kotlinchuck.di.app.MyAppModule
+import com.example.david.kotlinchuck.di.presenter.DaggerPresentersComponent
 import com.example.david.kotlinchuck.di.presenter.PresentersComponent
 import com.example.david.kotlinchuck.di.presenter.PresentersModule
+import com.example.david.kotlinchuck.di.repository.DaggerRepositoryComponent
+import com.example.david.kotlinchuck.di.repository.RepositoryComponent
+import com.example.david.kotlinchuck.di.repository.RepositoryModule
 import com.example.david.kotlinchuck.findJoke.di.DaggerFindJokeComponent
 import com.example.david.kotlinchuck.findJoke.di.FindJokeComponent
 import com.example.david.kotlinchuck.findJoke.di.FindJokeModule
@@ -42,6 +47,12 @@ class MyApp: Application() {
         fun presenterComponent(): PresentersComponent {
             return DaggerPresentersComponent.builder()
                     .presentersModule(PresentersModule())
+                    .build()
+        }
+
+        fun repositoryComponent(): RepositoryComponent {
+            return DaggerRepositoryComponent.builder()
+                    .repositoryModule(RepositoryModule())
                     .build()
         }
     }
