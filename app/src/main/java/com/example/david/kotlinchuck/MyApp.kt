@@ -5,6 +5,10 @@ import android.arch.persistence.room.Room
 import android.content.Context
 import com.example.david.kotlinchuck.database.AppDatabase
 import com.example.david.kotlinchuck.di.*
+import com.example.david.kotlinchuck.di.app.MyAppComponent
+import com.example.david.kotlinchuck.di.app.MyAppModule
+import com.example.david.kotlinchuck.di.presenter.PresentersComponent
+import com.example.david.kotlinchuck.di.presenter.PresentersModule
 import com.example.david.kotlinchuck.findJoke.di.DaggerFindJokeComponent
 import com.example.david.kotlinchuck.findJoke.di.FindJokeComponent
 import com.example.david.kotlinchuck.findJoke.di.FindJokeModule
@@ -35,7 +39,7 @@ class MyApp: Application() {
                     .build()
         }
 
-        fun presenterComponent(): PresentersComponent{
+        fun presenterComponent(): PresentersComponent {
             return DaggerPresentersComponent.builder()
                     .presentersModule(PresentersModule())
                     .build()
