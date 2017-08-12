@@ -2,16 +2,15 @@ package com.example.david.kotlinchuck.di
 
 import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenter
-import com.example.david.kotlinchuck.mainActivity.MainActivity
 import dagger.Component
 import javax.inject.Singleton
 
 /**
  * Created by david on 9/8/17.
  */
-@Component(modules = arrayOf(AppModule::class))
+@Component(modules = arrayOf(MyAppModule::class))
 @Singleton
-interface AppComponent {
+interface MyAppComponent {
     fun inject(app: MyApp)
     fun inject(findJokePresenter: FindJokePresenter)
 }
