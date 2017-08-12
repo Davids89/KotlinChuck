@@ -1,4 +1,4 @@
-package com.example.david.kotlinchuck.di
+package com.example.david.kotlinchuck.di.app
 
 import android.content.Context
 import android.support.annotation.NonNull
@@ -11,7 +11,7 @@ import javax.inject.Singleton
  */
 
 @Module
-class AppModule(@NonNull var context: Context) {
+class MyAppModule(@NonNull var context: Context) {
 
     @Provides
     @Singleton

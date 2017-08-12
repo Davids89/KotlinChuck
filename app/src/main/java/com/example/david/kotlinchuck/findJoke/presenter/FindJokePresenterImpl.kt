@@ -1,26 +1,30 @@
 package com.example.david.kotlinchuck.findJoke.presenter
 
+import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepository
-import com.example.david.kotlinchuck.findJoke.repository.FindJokeRepositoryImpl
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
 import com.example.david.kotlinchuck.findJoke.event.SaveJokeEvent
 import com.example.david.kotlinchuck.findJoke.ui.FindJokeView
 import com.example.david.kotlinchuck.lib.base.EventBus
-import com.example.david.kotlinchuck.lib.GreenRobotEventBus
 import org.greenrobot.eventbus.Subscribe
+import javax.inject.Inject
 
 /**
  * Created by david on 28/6/17.
  */
-class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
+class FindJokePresenterImpl(var view: FindJokeView?) : FindJokePresenter {
 
-    var view: FindJokeView? = view
-    var eventBus: EventBus = GreenRobotEventBus.INSTANCE
-    var repository: FindJokeRepository = FindJokeRepositoryImpl()
+    @Inject
+    lateinit var eventBus: EventBus
 
+    @Inject
+    lateinit var repository: FindJokeRepository
 
     override fun onCreate() {
+
+        MyApp.presenterComponent().inject(this)
+
         if(view != null){
             this.eventBus.register(this)
         }
