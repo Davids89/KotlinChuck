@@ -8,14 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import com.example.david.kotlinchuck.MyApp
 
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenter
-import com.example.david.kotlinchuck.findJoke.presenter.FindJokePresenterImpl
 import kotlinx.android.synthetic.main.fragment_search.*
 import org.jetbrains.anko.design.longSnackbar
 import org.jetbrains.anko.support.v4.find
+import javax.inject.Inject
 
 
 /**
@@ -23,13 +24,17 @@ import org.jetbrains.anko.support.v4.find
  */
 class SearchFragment : Fragment(), FindJokeView {
 
-    val presenter: FindJokePresenter = FindJokePresenterImpl(this)
+    @Inject
+    lateinit var presenter: FindJokePresenter
     lateinit var button: Button
     lateinit var saveJoke: ImageButton
     lateinit var currentJoke: Joke
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        MyApp.searchFragmentComponent(this).inject(this)
+
         presenter.onCreate()
         loadImage()
     }

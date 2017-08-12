@@ -11,7 +11,7 @@ import javax.inject.Singleton
  */
 
 @Module
-class AppModule(@NonNull var context: Context) {
+class MyAppModule(@NonNull var context: Context) {
 
     @Provides
     @Singleton
