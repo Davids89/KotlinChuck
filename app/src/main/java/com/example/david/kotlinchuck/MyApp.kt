@@ -7,6 +7,10 @@ import com.example.david.kotlinchuck.database.AppDatabase
 import com.example.david.kotlinchuck.di.AppComponent
 import com.example.david.kotlinchuck.di.AppModule
 import com.example.david.kotlinchuck.di.DaggerAppComponent
+import com.example.david.kotlinchuck.findJoke.di.DaggerFindJokeComponent
+import com.example.david.kotlinchuck.findJoke.di.FindJokeComponent
+import com.example.david.kotlinchuck.findJoke.di.FindJokeModule
+import com.example.david.kotlinchuck.findJoke.ui.FindJokeView
 import com.example.david.kotlinchuck.mainActivity.MainActivity
 import com.example.david.kotlinchuck.mainActivity.di.DaggerMainActivityComponent
 import com.example.david.kotlinchuck.mainActivity.di.MainActivityComponent
@@ -24,6 +28,12 @@ class MyApp: Application() {
         fun mainActivityComponent(mainActivity: MainActivity): MainActivityComponent{
             return DaggerMainActivityComponent.builder()
                     .mainActivityModule(MainActivityModule(mainActivity))
+                    .build()
+        }
+
+        fun searchFragmentComponent(view: FindJokeView): FindJokeComponent{
+            return DaggerFindJokeComponent.builder()
+                    .findJokeModule(FindJokeModule(view))
                     .build()
         }
     }
