@@ -13,9 +13,7 @@ import javax.inject.Inject
 /**
  * Created by david on 28/6/17.
  */
-class FindJokePresenterImpl(view: FindJokeView) : FindJokePresenter {
-
-    var view: FindJokeView? = view
+class FindJokePresenterImpl(var view: FindJokeView?) : FindJokePresenter {
 
     @Inject
     lateinit var eventBus: EventBus
