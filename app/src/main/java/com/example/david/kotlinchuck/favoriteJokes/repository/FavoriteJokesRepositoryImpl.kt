@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.lib.base.EventBus
+import com.vicpin.krealmextensions.queryAll
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.launch
 import javax.inject.Inject
@@ -25,7 +26,7 @@ class FavoriteJokesRepositoryImpl: FavoriteJokesRepository {
     override fun getJokes() {
         launch(CommonPool){
             try {
-                jokes = MyApp.database?.jokeDao()?.getAllJokes()
+                jokes = Joke().queryAll()
                 success(jokes)
             }catch (e: Exception){
                 Log.d("Error", e.toString())
