@@ -1,5 +1,6 @@
 package com.example.david.kotlinchuck.findJoke.repository
 
+import android.util.Log
 import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.api.ChuckClient
 import com.example.david.kotlinchuck.api.RandomJokeResponse
@@ -7,7 +8,7 @@ import com.example.david.kotlinchuck.entities.Joke
 import com.example.david.kotlinchuck.findJoke.event.FindJokeEvent
 import com.example.david.kotlinchuck.findJoke.event.SaveJokeEvent
 import com.example.david.kotlinchuck.lib.base.EventBus
-import com.example.david.kotlinchuck.lib.GreenRobotEventBus
+import com.vicpin.krealmextensions.save
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.launch
 import retrofit2.Call
@@ -39,10 +40,10 @@ class FindJokeRepositoryImpl : FindJokeRepository {
 
         launch(CommonPool){
             try {
-                MyApp.database?.jokeDao()?.insertJoke(joke)
+                joke.save()
                 successSaveJoke()
             } catch (e: Exception){
-                print(e)
+                Log.d("Error", e.toString())
                 errorSaveJoke()
             }
         }

@@ -1,10 +1,7 @@
 package com.example.david.kotlinchuck
 
 import android.app.Application
-import android.arch.persistence.room.Room
 import android.content.Context
-import com.example.david.kotlinchuck.database.AppDatabase
-import com.example.david.kotlinchuck.di.*
 import com.example.david.kotlinchuck.di.app.DaggerMyAppComponent
 import com.example.david.kotlinchuck.di.app.MyAppComponent
 import com.example.david.kotlinchuck.di.app.MyAppModule
@@ -26,13 +23,13 @@ import com.example.david.kotlinchuck.mainActivity.MainActivity
 import com.example.david.kotlinchuck.mainActivity.di.DaggerMainActivityComponent
 import com.example.david.kotlinchuck.mainActivity.di.MainActivityComponent
 import com.example.david.kotlinchuck.mainActivity.di.MainActivityModule
+import io.realm.Realm
 
 /**
  * Created by david on 9/7/17.
  */
 class MyApp: Application() {
     companion object {
-        var database: AppDatabase? = null
         lateinit var context: Context
         lateinit var component: MyAppComponent
 
@@ -69,11 +66,16 @@ class MyApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        MyApp.database = Room.databaseBuilder(this, AppDatabase::class.java, "chuck-joke-db").build()
         context = this
 
         component = DaggerMyAppComponent.builder()
                 .myAppModule(MyAppModule(context))
                 .build()
+
+        initializeRealm()
+    }
+
+    private fun initializeRealm() {
+        Realm.init(this)
     }
 }
