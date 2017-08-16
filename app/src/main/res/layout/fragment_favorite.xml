@@ -2,12 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.david.kotlinchuck.favoriteJokes.ui.FavoriteFragment">
+    tools:context="com.example.david.kotlinchuck.favoriteJokes.ui.FavoriteFragment"
+    android:id="@+id/favoriteContext">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/savedJokesRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Favorite" />
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
