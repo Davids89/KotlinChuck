@@ -36,7 +36,10 @@ class FavoriteJokesPresenterImpl(var view: FavoriteView?): FavoriteJokesPresente
 
     @Subscribe
     override fun onEventMainThread(event: FavoriteEvent) {
-
+        when(event.type){
+            FavoriteEvent.onSuccess -> view?.onListJokesSuccess(event.jokes)
+            FavoriteEvent.onError -> view?.onListJokesError()
+        }
     }
 
 }

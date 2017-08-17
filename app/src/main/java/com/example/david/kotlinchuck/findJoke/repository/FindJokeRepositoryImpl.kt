@@ -37,15 +37,12 @@ class FindJokeRepositoryImpl : FindJokeRepository {
     }
 
     override fun saveJoke(joke: Joke) {
-
-        launch(CommonPool){
-            try {
-                joke.save()
-                successSaveJoke()
-            } catch (e: Exception){
-                Log.d("Error", e.toString())
-                errorSaveJoke()
-            }
+        try {
+            joke.save()
+            successSaveJoke()
+        } catch (e: Exception){
+            Log.d("Error", e.toString())
+            errorSaveJoke()
         }
     }
 
