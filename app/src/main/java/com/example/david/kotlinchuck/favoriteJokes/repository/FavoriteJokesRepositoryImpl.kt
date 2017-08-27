@@ -3,6 +3,7 @@ package com.example.david.kotlinchuck.favoriteJokes.repository
 import android.util.Log
 import com.example.david.kotlinchuck.MyApp
 import com.example.david.kotlinchuck.entities.Joke
+import com.example.david.kotlinchuck.favoriteJokes.event.FavoriteEvent
 import com.example.david.kotlinchuck.lib.base.EventBus
 import com.vicpin.krealmextensions.queryAll
 import kotlinx.coroutines.experimental.CommonPool
@@ -24,14 +25,12 @@ class FavoriteJokesRepositoryImpl: FavoriteJokesRepository {
     }
 
     override fun getJokes() {
-        launch(CommonPool){
-            try {
-                jokes = Joke().queryAll()
-                success(jokes)
-            }catch (e: Exception){
-                Log.d("Error", e.toString())
-                error()
-            }
+        try {
+            jokes = Joke().queryAll()
+            success(jokes)
+        }catch (e: Exception){
+            Log.d("Error", e.toString())
+            error()
         }
     }
 
@@ -44,6 +43,15 @@ class FavoriteJokesRepositoryImpl: FavoriteJokesRepository {
     }
 
     fun post(jokes: List<Joke>?, error: Boolean){
+        val event: FavoriteEvent = FavoriteEvent()
 
+        if(!error){
+            event.type = FavoriteEvent.onSuccess
+            event.jokes = jokes
+        } else {
+            event.type = FavoriteEvent.onError
+        }
+
+        eventBus.post(event)
     }
 }
