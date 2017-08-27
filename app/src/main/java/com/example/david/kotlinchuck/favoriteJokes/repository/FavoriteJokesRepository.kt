@@ -5,4 +5,5 @@ package com.example.david.kotlinchuck.favoriteJokes.repository
  */
 interface FavoriteJokesRepository {
     fun getJokes()
+    fun deleteJoke(text: String)
 }
