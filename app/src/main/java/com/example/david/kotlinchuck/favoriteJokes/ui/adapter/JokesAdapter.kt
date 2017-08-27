@@ -6,16 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.david.kotlinchuck.R
 import com.example.david.kotlinchuck.entities.Joke
+import com.example.david.kotlinchuck.favoriteJokes.ui.FavoriteView
 
 /**
  * Created by david on 15/8/17.
  */
-class JokesAdapter: RecyclerView.Adapter<JokeViewHolder>() {
+class JokesAdapter(view: FavoriteView): RecyclerView.Adapter<JokeViewHolder>() {
 
     var jokeList: List<Joke> = listOf()
+    var view = view
 
     override fun onBindViewHolder(holder: JokeViewHolder?, position: Int) {
         val joke = jokeList.get(position)
+
+        holder?.setOnClickListener(view)
+
         holder!!.bindJoke(joke)
     }
 
