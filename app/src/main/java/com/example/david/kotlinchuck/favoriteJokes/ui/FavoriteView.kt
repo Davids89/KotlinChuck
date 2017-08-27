@@ -8,4 +8,7 @@ import com.example.david.kotlinchuck.entities.Joke
 interface FavoriteView {
     fun onListJokesSuccess(jokeList: List<Joke>?)
     fun onListJokesError()
+    fun onDeleteClick(text: String)
+    fun onDeleteSuccess(jokes: List<Joke>?)
+    fun onDeleteError()
 }

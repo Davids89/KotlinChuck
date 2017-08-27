@@ -17,7 +17,6 @@ import com.example.david.kotlinchuck.favoriteJokes.ui.adapter.JokesAdapter
 import kotlinx.android.synthetic.main.fragment_favorite.*
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.find
-import org.jetbrains.anko.support.v4.find
 import javax.inject.Inject
 
 
@@ -25,6 +24,7 @@ import javax.inject.Inject
  * A simple [Fragment] subclass.
  */
 class FavoriteFragment : Fragment(), FavoriteView {
+
 
     @Inject
     lateinit var presenter: FavoriteJokesPresenter
@@ -65,6 +65,19 @@ class FavoriteFragment : Fragment(), FavoriteView {
         snackbar(favoriteContext, "Error")
     }
 
+    override fun onDeleteSuccess(jokes: List<Joke>?) {
+        adapter.setJokes(jokes)
+        snackbar(favoriteContext, "Borrado con exito")
+    }
+
+    override fun onDeleteError() {
+        snackbar(favoriteContext, "Error al borrar")
+    }
+
+    override fun onDeleteClick(text: String) {
+        presenter.deleteJoke(text)
+    }
+
     private fun setupRecyclerView(view: View?) {
         recyclerView = view!!.find(R.id.savedJokesRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -72,6 +85,6 @@ class FavoriteFragment : Fragment(), FavoriteView {
     }
 
     private fun setupAdapter() {
-        adapter = JokesAdapter()
+        adapter = JokesAdapter(this)
     }
 }
