@@ -12,22 +12,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.v7.widget.CardView
+        <!--<android.support.v7.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:minHeight="200dp">
 
-            <ImageButton
-                android:id="@+id/saveJoke"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_gravity="right"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_action_not_favorite"
-                android:tint="@android:color/holo_red_dark"
-                android:visibility="gone" />
+
 
             <TextView
                 android:id="@+id/chuckJoke"
@@ -42,39 +34,60 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>-->
+
+        <RelativeLayout
+            android:id="@+id/textWrapper"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+
+            <ImageView
+                android:src="@drawable/bocadillo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <ImageButton
+                android:id="@+id/saveJoke"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="right"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_action_not_favorite"
+                android:tint="@android:color/holo_red_dark"
+                android:visibility="gone"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/chuckJoke"
+                android:textSize="15sp"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
 
         <ImageView
-            android:layout_below="@id/cardView"
+            android:layout_marginTop="-60dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/chuck"
             android:id="@+id/appImage"
+            android:layout_below="@id/textWrapper"
             android:layout_width="wrap_content"
             android:layout_height="100dp" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/findJoke"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:layout_below="@+id/appImage">
-
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <EditText
-                android:id="@+id/lastName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/findJoke"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/find_joke" />
-        </LinearLayout>
+            android:text="@string/find_joke"
+            android:layout_below="@+id/appImage"/>
     </RelativeLayout>
 
 

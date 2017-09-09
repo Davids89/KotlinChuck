@@ -31,9 +31,9 @@ class FindJokeRepositoryImpl : FindJokeRepository {
         MyApp.repositoryComponent().inject(this)
     }
 
-    override fun findJoke(name: String, lastName: String) {
+    override fun findJoke() {
 
-        client.callToChuck().getRandomWithName(name, lastName).enqueue()
+        client.callToChuck().getRandomWithName().enqueue()
     }
 
     override fun saveJoke(joke: Joke) {

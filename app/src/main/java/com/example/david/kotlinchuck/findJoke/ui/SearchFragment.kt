@@ -60,7 +60,7 @@ class SearchFragment : Fragment(), FindJokeView {
         button = find(R.id.findJoke)
         saveJoke = find(R.id.saveJoke)
 
-        button.setOnClickListener { presenter.findJoke(name.text.toString(), lastName.text.toString())  }
+        button.setOnClickListener { presenter.findJoke()  }
         saveJoke.setOnClickListener { presenter.saveJoke(currentJoke)}
     }
 
