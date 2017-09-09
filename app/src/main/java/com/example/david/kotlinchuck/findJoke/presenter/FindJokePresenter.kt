@@ -10,7 +10,7 @@ import com.example.david.kotlinchuck.findJoke.event.SaveJokeEvent
 interface FindJokePresenter {
     fun onCreate()
     fun onDestroy()
-    fun findJoke(name: String, lastname: String)
+    fun findJoke()
     fun saveJoke(joke: Joke)
 
     fun onEventMainThread(event: FindJokeEvent)

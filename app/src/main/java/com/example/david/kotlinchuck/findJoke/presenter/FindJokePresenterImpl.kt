@@ -35,18 +35,8 @@ class FindJokePresenterImpl(var view: FindJokeView?) : FindJokePresenter {
         view = null
     }
 
-    override fun findJoke(name: String, lastname: String) {
-
-        var finalName: String = String()
-        var finalLastName: String = String()
-
-        if(!name.isEmpty())
-            finalName = name
-
-        if(!lastname.isEmpty())
-            finalLastName = lastname
-
-        repository.findJoke(finalName, finalLastName)
+    override fun findJoke() {
+        repository.findJoke()
     }
 
     override fun saveJoke(joke: Joke) {
@@ -70,7 +60,7 @@ class FindJokePresenterImpl(var view: FindJokeView?) : FindJokePresenter {
         when(event.type){
             SaveJokeEvent.onSuccess ->{
                 view?.saveJokeSuccess(event.message)
-                findJoke("","")
+                findJoke()
             }
             SaveJokeEvent.onError -> view?.saveJokeError(event.message)
         }
